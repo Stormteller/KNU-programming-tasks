@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema
+        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="CandyNS"
+        xmlns="CandyNS"
+        elementFormDefault="qualified">
+
+    <xs:element name="Candy">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="candies">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="candy" type="Candy" minOccurs="1" maxOccurs="unbounded" />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:simpleType name="name">
+        <xs:restriction base="xs:string" />
+    </xs:simpleType>
+
+    <xs:simpleType name="energy">
+        <xs:restriction base="xs:float" />
+    </xs:simpleType>
+
+    <xs:simpleType name="caramel">
+        <xs:restriction base="xs:boolean" />
+    </xs:simpleType>
+
+    <xs:simpleType name="filling">
+        <xs:restriction base="xs:boolean" />
+    </xs:simpleType>
+
+    <xs:simpleType name="chocolate">
+        <xs:restriction base="xs:boolean" />
+    </xs:simpleType>
+
+    <xs:simpleType name="water">
+        <xs:restriction base="xs:positiveInteger" />
+    </xs:simpleType>
+
+    <xs:simpleType name="sugar">
+        <xs:restriction base="xs:positiveInteger" />
+    </xs:simpleType>
+
+    <xs:simpleType name="fructose">
+        <xs:restriction base="xs:positiveInteger" />
+    </xs:simpleType>
+
+    <xs:simpleType name="vanillin">
+        <xs:restriction base="xs:positiveInteger" />
+    </xs:simpleType>
+
+    <xs:simpleType name="protein">
+        <xs:restriction base="xs:float" />
+    </xs:simpleType>
+
+    <xs:simpleType name="fats">
+        <xs:restriction base="xs:float" />
+    </xs:simpleType>
+
+    <xs:simpleType name="carbohydrates">
+        <xs:restriction base="xs:float" />
+    </xs:simpleType>
+
+    <xs:simpleType name="production">
+        <xs:restriction base="xs:string" />
+    </xs:simpleType>
+
+    <xs:complexType name="Candy">
+        <xs:sequence>
+            <xs:element name="Name" type="name"></xs:element>
+            <xs:element name="Energy" type="energy"></xs:element>
+            <xs:element name="Type">
+                <xs:complexType >
+                    <xs:sequence>
+                        <xs:element name="Caramel" type="caramel"></xs:element>
+                        <xs:element name="Filling" type="filling"></xs:element>
+                        <xs:element name="Chocolate" type="chocolate"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="Ingredients">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Water" type="water"></xs:element>
+                        <xs:element name="Sugar" type="sugar"></xs:element>
+                        <xs:element name="Fructose" type="fructose"></xs:element>
+                        <xs:element name="Vanillin" type="vanillin"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="Value">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Protein" type="protein"></xs:element>
+                        <xs:element name="Fats" type="fats"></xs:element>
+                        <xs:element name="Carbohydrates" type="carbohydrates"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="Production" type = "production"></xs:element>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:ID" use="required"/>
+    </xs:complexType>
+
+</xs:schema>
